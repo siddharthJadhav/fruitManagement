@@ -1,0 +1,31 @@
+.whiteCard {
+  background-color: #ffffff;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: #545454;
+  padding: 3px 6px;
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin: 2px 5px;
+}
+
+.footer {
+  text-align: right;
+}
+
+.Label {
+  color: #545454;
+  font-weight: 100;
+  font-size: 14px;
+  opacity: 1 !important;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.header {
+  margin: 10px 0 0 16px
+}

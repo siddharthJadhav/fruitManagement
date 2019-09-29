@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Fruit Management
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bgColor">
+
+  <div class="margin-top-10">
+    <div *ngIf="!showAddForm" class="text-center">
+      <button class="btn primary" (click)="showAddForm = true">Add Fruit</button>
+    </div>
+    <div *ngIf="showAddForm">
+      <app-fruit [fruit]="fruitObj" isAdd="true" (addedFruit)="addedFruit($event)" (removeform)="removeform($event)">
+      </app-fruit>
+    </div>
+  </div>
+
+  <div *ngFor="let fruit of fruitList">
+    <app-fruit [fruit]="fruit" (removeform)="removeform($event)"></app-fruit>
+  </div>
+
+
+</ion-content>

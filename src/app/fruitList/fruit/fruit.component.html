@@ -1,0 +1,38 @@
+<form #form="ngForm" novalidate>
+  <ion-card class="whiteCard">
+    <ion-card-header *ngIf="isEdit || isAdd">
+      <ion-card-title class="header">{{ isAdd ? 'Add Fruit' : 'Edit Fruit'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label class="Label" position="floating">Name</ion-label>
+            <ion-input class="inputText" [ngClass]="{'disabled': !isEdit && !isAdd}" type="text" required
+              [(ngModel)]="fruit.name" name="name"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label class="Label" position="floating">Price</ion-label>
+            <ion-input class="inputText" [ngClass]="{'disabled': !isEdit && !isAdd}" type="number" required
+              [(ngModel)]="fruit.price" name="price">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <div class="footer">
+        <button ion-button *ngIf="isEdit" [disabled]="form.invalid" (click)="updateFruit(fruit)"
+          class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;Save</button>
+        <button ion-button *ngIf="isAdd" [disabled]="form.invalid" (click)="addFruit(fruit)" class="btn btn-primary"><i
+            class="fa fa-plus"></i>&nbsp;Add</button>
+        <button ion-button *ngIf="isEdit || isAdd" (click)="cancel()" class="btn btn-primary"><i
+            class="fa fa-times"></i>&nbsp;Cancel</button>
+        <button ion-button *ngIf="!isEdit && !isAdd" (click)="editFruit(fruit)" class="btn btn-primary"><i
+            class="fa fa-pencil"></i>&nbsp;Edit</button>
+        <button ion-button *ngIf="!isEdit && !isAdd" (click)="openConformationBox(fruit)" class="btn btn-primary"><i
+            class="fa fa-trash"></i>&nbsp;Delete</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</form>
