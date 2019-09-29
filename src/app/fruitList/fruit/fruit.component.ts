@@ -109,7 +109,6 @@ export class FruitComponent {
    */
   async openConformationBox(fruit: Fruit): Promise<void> {
     const alert = await this.alert.create({
-      header: 'Confirm!',
       message: `Are you sure you want to delete <strong>${fruit.name}</strong>?`,
       buttons: [
         {
